@@ -2,6 +2,40 @@
 
 CU CSPB Cohort Connect aims to connect current and past students in CU's computer science post-bacc program.
 
+
+## Weekly Updates
+### Week 4
+This week I continued practicing Java and worked on learning how to use the Spring Boot framework. I initialized my first Spring Boot project and added the dependencies Spring Web (allows for creation of REST APIs) and Spring Boot DevTools (allows hot reload during development). I am sure I will find more dependencies to add as I learn more about Spring Boot and deeper into development. I was able to get my first endpoint created and see it on my local host. 
+
+I also worked on getting my development environment set up. I made sure I had a recent version of Java installed on my machine and I installed Maven. I will probably use VS Code for most development, so I installed some tools I found that help with Java development including Language Support for Java by Red Hat, Maven for Java, Debugger for Java, and Project Manager for Java. 
+
+I think I made a good decision to not get too caught up on understanding Java perfectly before getting started on creating my application and diving into Spring Boot. This will allow me to learn as I go and not fall behind my schedule. For next week I want to have completed the DB design for my page so I can create the necessary endpoints in Java using Spring Boot.
+
+---
+### Week 3
+This week I worked on finalizing my project proposal. I decided to pursue the idea I mentioned last week of building a full stack web application that connects current and past students of the CSPB program using Java as the back-end. I’ve gotten started with learning Java on Codecademy and some quick “learn Java” videos on YouTube. In my learning process I also did some research on why Java is such a popular language in the tech industry, which reinforced my desire to learn it before graduating. The most significant aspect of Java that has kept it popular for 30 years is the Java Virtual Mach (JVM), which allows the same Java code to run on different operating systems. Additionally, Java runs very fast for a programming language that does its own garbage collection and it is notably a very secure language. 
+
+In the next week, I aim to keep learning the basics of Java, get a Spring Boot instance created, and start planning the front-end features and database for my site. 
+
+---
+### Week 2
+I am late to join the class, so I am sure I will update my project as time progresses and as I have more time to think about it, but thus far I have come up with a goal of my project and a very brief time line of what I want to accomplish. I appreciate the emphasis this class puts on networking, but I also am about to graduate so I wanted a project that encompasses both my programming skills and connection with other students. 
+
+**Goal:** My aim is to learn the programming language Java and some associated frameworks (Spring Boot) and build tools (Maven vs. Gradle) and deploy a full stack app that called CU CSPB Cohort Connect that aims to connect current and past students in the post-bacc program. The app will allows students to share resources, host study events, and connect in an environment not modded by professors. The app will also help past students stay in contact with not only each other, but set up potential mentor opportunities. This will be an open-source project, so once I am finished with the semester, I am hoping management could be passed down to current students. 
+
+**Schedule:**
+Week  2-3: Learn Java and Spring Boot, start initial planning for design 
+
+Week 4-5: Database design and Spring Boot initialization 
+
+Week 6-7: User management and auth (Spring Boot Security with JWT)
+
+Week 8-9: CRUD events 
+
+Week 10-11: Build frontend and API integration
+
+Week 12-13: Deploy and polish
+
 ## Project Proposal
 ### Vision Statement
 My goal with this project is to learn Java and apply that knowledge by building and deploying a full-stack web application that connects current and past students in the post-baccalaureate program. Using the associated Java framework Spring Boot and the build tool Maven, I will create a platform where students can share resources, host study events, and connect in an environment independent of professors. The app will also help past students stay in contact with not only each other, but set up potential mentor opportunities with current students. This will be an open-source project, so once I am finished with the semester, I am hoping management could be passed down to current students. 
