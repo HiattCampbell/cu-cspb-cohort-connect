@@ -13,6 +13,8 @@ This week, I think I did a good job of diving headfirst into a technology that I
 
 I put the creation of the database and setting up Postgres on pause this week for the Docker deep dive, so next week I will need to build out my database (also using docker and Postgres).
 
+---
+
 ### Week 5
 This week in addition to updating my personal portfolio I got started on both the design for the front-end of my website and the back-end database.
 
@@ -35,6 +37,7 @@ This week I think it was a good idea to jump into the designs of everything so I
 |                                                        |                                                     | looking_for_mentor (bool)                                     |
 |                                                        |                                                     | looking_for_mentee (bool)  
 
+---
 
 ### Week 4
 This week I continued practicing Java and worked on learning how to use the Spring Boot framework. I initialized my first Spring Boot project and added the dependencies Spring Web (allows for creation of REST APIs) and Spring Boot DevTools (allows hot reload during development). I am sure I will find more dependencies to add as I learn more about Spring Boot and deeper into development. I was able to get my first endpoint created and see it on my local host. 
