@@ -4,6 +4,38 @@ CU CSPB Cohort Connect aims to connect current and past students in CU's compute
 
 
 ## Weekly Updates
+### Week 6
+This week I got started with Docker. Before this week I had an extremely limited understanding of what Docker was and its use cases. To fully understand Docker, I watched a crash course tutorial geared towards beginners on YouTube, started a LinkedIn Learning course on Docker and looked into how to use Docker with SpringBoot (my chosen backend framework) and Postgres (which I will use for my database). Since I plan to use Docker for all three of my applications, I will use Docker Compose, which from my research, is the recommended way of dealing with multiple Docker containers across your backend, frontend, and database. I also am considering using Volumes, but will need to do more looking into it.
+
+I also did some looking into file systems and how to use repositories when you are working across multiple applications, as I am getting to a point where I need to start working on my frontend and database. I think, because I am solo, I will make a mono repo where I keep my api, my frontend React app, and my database. It seems like this is a good option for versioning as well as organization. If anyone has any arguments against a single repository for an entire full-stack app, I’d be open to hearing it, though!
+
+This week, I think I did a good job of diving headfirst into a technology that I had virtually zero understanding of. However, I think trying to understand how to use Docker in Postgres took my down a rabbit hole and I should have focused on only understanding Docker and its interaction with Spring Boot.
+
+I put the creation of the database and setting up Postgres on pause this week for the Docker deep dive, so next week I will need to build out my database (also using docker and Postgres).
+
+### Week 5
+This week in addition to updating my personal portfolio I got started on both the design for the front-end of my website and the back-end database.
+
+I have decided to structure my site, Cohort Connect, similarly to a virtual bulletin board. I got a little carried away with the front-end design and worked ahead a little further than wire framing. For my back-end I want to keep things fairly simple. As of now, I have three main tables; bulletin, user, and reply. Users will be able to post bulletins of certain types, with a title and content. Users with admin privileges will be able to perform CRUD operations on all bulletins, while users without admin privileges will be able to create and read all bulletins, but can only update and delete their own bulletins.
+
+This week I think it was a good idea to jump into the designs of everything so I know exactly what my back-end should look like. This next week, I want to build the tables using SQL and populate them with data. I also want to start building the endpoints using the Spring Boot instance I initiated last week. By the end of next week I want to be able to perform CRUD operations on my DB. The only blocker I have at the minute is time and getting everything done in the next half of the semester. 
+
+<img src ="./resources/design.jpg" width="500px">
+
+
+| bulletin                                               | reply                                               | user                                                             |
+|--------------------------------------------------------|-----------------------------------------------------|-------------------------------------------------------------------|
+| id [pk] (int)                                          | id [pk] (int)                                       | id [pk] (int)                                                    |
+| type (enum: event, announcement, question, misc.)      | bulletin_id [fk] (int)                              | type (enum: current_student, former_student, admin)              |
+| posted_on (datetime)                                   | posted_on (datetime)                                | email (varchar(45))                                             |
+| posted_by [fk] (int)                                   | posted_by [fk] (int)                                | password (varchar(45))                                          |
+| title (varchar(120))                                   | content (varchar(450))                              | display_name (varchar(20))                                     |
+| content (varchar(450))                                 |                                                     | mentor_to [fk] (int)                                           |
+|                                                        |                                                     | mentored_by [fk] (int)                                         |
+|                                                        |                                                     | looking_for_mentor (bool)                                     |
+|                                                        |                                                     | looking_for_mentee (bool)  
+
+
 ### Week 4
 This week I continued practicing Java and worked on learning how to use the Spring Boot framework. I initialized my first Spring Boot project and added the dependencies Spring Web (allows for creation of REST APIs) and Spring Boot DevTools (allows hot reload during development). I am sure I will find more dependencies to add as I learn more about Spring Boot and deeper into development. I was able to get my first endpoint created and see it on my local host. 
 
