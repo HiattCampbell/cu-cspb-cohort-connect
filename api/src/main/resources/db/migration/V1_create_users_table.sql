@@ -9,8 +9,8 @@ CREATE TABLE users (
     display_name VARCHAR(255) NOT NULL,
     looking_for_mentor BOOLEAN,
     looking_for_mentee BOOLEAN,
-    mentor_to INT,
-    mentored_by INT,
+    mentor_to SERIAL,
+    mentored_by SERIAL,
     FOREIGN KEY (mentor_to) REFERENCES users(id),
     FOREIGN KEY (mentored_by) REFERENCES users(id)
 );
