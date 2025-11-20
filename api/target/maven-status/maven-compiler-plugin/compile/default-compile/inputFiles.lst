@@ -1,4 +1,8 @@
 /Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/ApiApplication.java
+/Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/auth/AuthController.java
+/Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/auth/LoginRequest.java
+/Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/auth/LoginResponse.java
+/Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/auth/RegisterRequest.java
 /Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/config/CorsConfig.java
 /Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/controller/BulletinController.java
 /Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/controller/ReplyController.java
@@ -6,4 +10,9 @@
 /Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/dto/BulletinDto.java
 /Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/dto/ReplyDto.java
 /Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/dto/UserDto.java
+/Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/security/JWTService.java
+/Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/security/JwtAuthenticationFilter.java
 /Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/security/SecurityConfig.java
+/Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/user/CustomUserDetailsService.java
+/Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/user/User.java
+/Users/hiattcampbell/Desktop/3112/cu-cspb-cohort-connect/api/src/main/java/com/example/api/user/UserRepository.java

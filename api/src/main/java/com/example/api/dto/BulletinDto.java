@@ -2,9 +2,11 @@ package com.example.api.dto;
 
 import java.time.LocalDateTime;
 
-public record BulletinDto(int id, 
-                          String type, 
+import com.example.api.bulletin.Bulletin;
+
+public record BulletinDto(Long id, 
+                          Bulletin.BulletinType type,
                           LocalDateTime posted_on, 
-                          int posted_by, 
+                          Long posted_by, 
                           String title, 
                           String content) {}
