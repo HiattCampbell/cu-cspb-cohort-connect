@@ -5,9 +5,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +19,6 @@ import com.example.api.dto.ReplyDto;
 import com.example.api.reply.Reply;
 import com.example.api.reply.ReplyRepository;
 import com.example.api.user.User;
-
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 
 @RestController
@@ -40,7 +40,7 @@ public class ReplyController {
     Bulletin bulletin = bulletinRepo.findById(request.bulletin_id()).orElseThrow(() -> new RuntimeException("Bulletin not found"));
 
     Reply r = new Reply();
-    r.setBulletinId(bulletin);
+    r.setBulletin(bulletin);
     r.setPostedBy(user);
     r.setPostedOn(LocalDateTime.now());
     r.setContent(request.content());
@@ -49,7 +49,7 @@ public class ReplyController {
 
     return new ReplyDto(
       r.getId(),
-      r.getBulletinId().getId(),
+      r.getBulletin().getId(),
       r.getPostedOn(),
       r.getPostedBy().getId(),
       r.getContent()
@@ -62,7 +62,7 @@ public class ReplyController {
     return replyRepo.findAll().stream()
                               .map(r -> new ReplyDto(
                                 r.getId(),
-                                r.getBulletinId().getId(),
+                                r.getBulletin().getId(),
                                 r.getPostedOn(),
                                 r.getPostedBy().getId(),
                                 r.getContent()
@@ -75,7 +75,7 @@ public class ReplyController {
       
       return new ReplyDto(
         r.getId(),
-        r.getBulletinId().getId(),
+        r.getBulletin().getId(),
         r.getPostedOn(),
         r.getPostedBy().getId(),
         r.getContent()
@@ -83,7 +83,7 @@ public class ReplyController {
    }
 
    // DELETE
-    @GetMapping("/{id}")
+    @DeleteMapping("/{id}")
       public String delete(@PathVariable Long id, Authentication auth) {
         User user = (User) auth.getPrincipal();
         Reply r = replyRepo.findById(id).orElseThrow(() -> new RuntimeException("Reply not found"));

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -84,7 +85,7 @@ public class BulletinController {
       }
 
   // DELETE
-  @GetMapping("/{id}")
+  @DeleteMapping("/{id}")
       public String delete(@PathVariable Long id, Authentication auth) {
         User user = (User) auth.getPrincipal();
         Bulletin b = bulletinRepo.findById(id).orElseThrow(() -> new RuntimeException("Bulletin not found"));

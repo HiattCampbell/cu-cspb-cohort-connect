@@ -12,7 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,9 +21,9 @@ public class Reply {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @OneToMany
+  @ManyToOne
   @JoinColumn(name = "bulletin_id", nullable = false)
-  private Bulletin bulletinId;
+  private Bulletin bulletin;
 
   @Column(name = "posted_on", nullable = false)
   private LocalDateTime postedOn;
@@ -42,8 +41,8 @@ public class Reply {
   public Long getId()  { return id; }
   public void setId(Long id) { this.id = id; }
 
-  public Bulletin getBulletinId()  { return bulletinId; }
-  public void setBulletinId(Bulletin bulletinId) { this.bulletinId = bulletinId; }
+  public Bulletin getBulletin()  { return bulletin; }
+  public void setBulletin(Bulletin bulletin) { this.bulletin = bulletin; }
 
   public LocalDateTime getPostedOn()  { return postedOn; }
   public void setPostedOn(LocalDateTime postedOn) { this.postedOn = postedOn; }
