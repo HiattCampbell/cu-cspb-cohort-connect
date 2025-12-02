@@ -11,9 +11,11 @@ public class CorsConfig {
   public WebMvcConfigurer corsConfigurer() {
     return new WebMvcConfigurer() {
       public void addCorsMappings(CorsRegistry registry){
-        registry.addMapping("/api/**")
+        registry.addMapping("/**")
                 .allowedOrigins("http://localhost:3000")
-                .allowedMethods("*");      
+                .allowedMethods("*")
+                .allowedHeaders("*")
+                .allowCredentials(true);      
               }
     };
   }

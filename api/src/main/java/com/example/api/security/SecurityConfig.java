@@ -34,6 +34,12 @@ public class SecurityConfig {
                 )
 
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(
+                            "/swagger-ui.html",
+                            "/swagger-ui/**",
+                            "/swagger-ui.html",
+                             "/v3/api-docs/**"
+                            ).permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/bulletins/**").permitAll() //allows anyone to view bulletins
                         .requestMatchers(HttpMethod.GET, "/api/v1/replies/**").permitAll()
