@@ -24,6 +24,7 @@ export default function Login({ onLogin }) {
       });
 
       setToken(data.token);
+      onLogin();
       navigate('/');
     } catch (err) {
       console.error(err);

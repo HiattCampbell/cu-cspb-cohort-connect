@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+#root {
+  font-family: "Alumni Sans", sans-serif;
+  display: flex;
+  flex-direction: row;
+}
+
+nav {
+  width: 30%;
+  background-color:#EDE2CA;
+  height: 100vh;
+  padding: 15px;
+}
+
+nav > ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.logo {
+  width: 100%;
+}
+
+

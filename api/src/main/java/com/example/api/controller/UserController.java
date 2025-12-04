@@ -10,39 +10,59 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.api.dto.UserDto;
 import com.example.api.user.User;
+import com.example.api.user.UserRepository;
 
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
 
-    // Simple test endpoint that returns a hard-coded user DTO
+    private final UserRepository userRepo;
+
+    public UserController(UserRepository userRepo) {
+        this.userRepo = userRepo;
+    }
+
+    // READ
     @GetMapping
     public List<UserDto> list() {
-        return List.of(
-            new UserDto(
-                0L,
-                User.UserType.current_student,
-                "hica3700@colorado.edu",
-                "hiattc"
-            )
-        );
+        return userRepo.findAll().stream()
+                            .map(u -> new UserDto(
+                                u.getId(),
+                                u.getType(),
+                                u.getEmail(),
+                                u.getDisplayName(),
+                                u.getLookingForMentee(),
+                                u.getLookingForMentor(),
+                                u.getMentorTo() != null ? u.getMentorTo().getId() : null
+                            )).toList();
     }
 
-    // Simple test endpoint that returns a DTO using the path id
     @GetMapping("/{id}")
     public UserDto get(@PathVariable Long id) {
-        return new UserDto(
-            id,
-            User.UserType.current_student,
-            "hica3700@colorado.edu",
-            "hiattc"
-        );
-    }
+        User u = userRepo.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
 
-    // Real endpoint: return the currently authenticated user from JWT
+        return new UserDto(
+            u.getId(),
+            u.getType(),
+            u.getEmail(),
+            u.getDisplayName(),
+            u.getLookingForMentee(),
+            u.getLookingForMentor(),
+            u.getMentorTo() != null ? u.getMentorTo().getId() : null
+        );
+        }
+
     @GetMapping("/me")
     public UserDto getCurrentUser(Authentication auth) {
-        User user = (User) auth.getPrincipal();
-        return UserDto.fromEntity(user);
+        User u = (User) auth.getPrincipal();
+        return new UserDto(
+            u.getId(),
+            u.getType(),
+            u.getEmail(),
+            u.getDisplayName(),
+            u.getLookingForMentee(),
+            u.getLookingForMentor(),
+            u.getMentorTo() != null ? u.getMentorTo().getId() : null
+        );
     }
 }

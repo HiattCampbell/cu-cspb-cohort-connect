@@ -1,11 +1,13 @@
 import Bulletins from '../components/Bulletins';
+import "../styles/home.css";
 
 
 function Home() {
   return (
     <>
-      <h1>CU CSPB Cohort Connect</h1>
-      <Bulletins></Bulletins>
+      <div className='home-container'>
+        <Bulletins></Bulletins>
+      </div>
     </>
   );
 }

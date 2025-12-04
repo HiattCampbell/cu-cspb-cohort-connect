@@ -15,6 +15,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// Runs every incoming HTTP request and ensures that:
+// - Request has authorization header
+// - Header is a bearer JWT
+// - Token is valid and not expired
+// - If the token is valid, is the user authenticated via Spring Security
+
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JWTService jwtService;
@@ -32,10 +38,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             FilterChain filterChain
     ) throws ServletException, IOException {
 
-        System.out.println("➡️ JWT Filter running on: " + request.getRequestURI());
 
         String authHeader = request.getHeader("Authorization");
-        System.out.println("Authorization header: " + authHeader);
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
@@ -47,9 +51,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         try {
             username = jwtService.extractUsername(token);
-            System.out.println("Extracted username: " + username);
         } catch (Exception e) {
-            System.out.println("❌ Failed to extract username: " + e.getMessage());
             filterChain.doFilter(request, response);
             return;
         }
@@ -60,11 +62,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
             boolean expired = jwtService.isExpired(token);
-            System.out.println("Token expired? " + expired);
 
             if (!expired && username.equals(userDetails.getUsername())) {
 
-                System.out.println("✅ Token is valid. Setting authentication for: " + username);
 
                 UsernamePasswordAuthenticationToken authToken =
                         new UsernamePasswordAuthenticationToken(
@@ -80,7 +80,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authToken);
 
             } else {
-                System.out.println("❌ Token invalid or expired.");
+                System.out.println("Error: Token invalid or expired.");
             }
         }
 

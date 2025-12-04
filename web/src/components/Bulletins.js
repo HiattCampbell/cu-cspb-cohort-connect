@@ -1,4 +1,3 @@
-// web/src/pages/Bulletins.js
 import { useEffect, useState } from "react";
 import { apiRequest } from "../api";
 
@@ -23,7 +22,7 @@ function Bulletins() {
       console.log("Error fetching bulletins: ", err);
       setError("failed to load bulletins");
     });
-  }, []); // run once
+  }, []); 
 
   async function handleCreate(e) {
     e.preventDefault();
@@ -49,8 +48,9 @@ function Bulletins() {
   }
 
   return (
-    <div>
-      <h3>Create new bulletin</h3>
+    <div className="bulletin-board">
+      <div className="post-box">
+      <h3>Post a bulletin</h3>
 
       <form onSubmit={handleCreate}>
         <div style={{ marginBottom: "0.5rem" }}>
@@ -95,17 +95,18 @@ function Bulletins() {
           </label>
         </div>
 
-        <button type="submit">Post bulletin</button>
+        <button type="submit">Post</button>
       </form>
-
+      </div>
       {error && <p style={{ color: "red" }}>{error}</p>}
-
+      <div className="bulletins">
       {bulletins.map(bulletin => (
-        <div key={bulletin.id}>
+        <div className="bulletin" key={bulletin.id}>
           <h2>{bulletin.title}</h2>
           <p>{bulletin.content}</p>
         </div>
       ))}
+      </div>
     </div>
   );
 }

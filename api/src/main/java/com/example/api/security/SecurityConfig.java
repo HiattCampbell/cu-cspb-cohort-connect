@@ -12,6 +12,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.example.api.user.CustomUserDetailsService;
 
+// What is allowed or blocked:
+// - Which endpoints require authentiction
+// - Which endpoints are public
+// - CORS and CSRF settings
 @Configuration
 public class SecurityConfig {
 
@@ -40,9 +44,11 @@ public class SecurityConfig {
                             "/swagger-ui.html",
                              "/v3/api-docs/**"
                             ).permitAll()
+                        
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/users/**").authenticated() // only authenticated users can view users
                         .requestMatchers(HttpMethod.GET, "/api/v1/bulletins/**").permitAll() //allows anyone to view bulletins
-                        .requestMatchers(HttpMethod.GET, "/api/v1/replies/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/replies/**").permitAll() // allows anyone to view replies
 
                         .anyRequest().authenticated() // requires authentication for everything else
                 )
@@ -60,4 +66,6 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    
 }

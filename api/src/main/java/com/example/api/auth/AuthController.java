@@ -42,6 +42,9 @@ public class AuthController {
         user.setPassword(passwordEncoder.encode(request.password()));
         user.setDisplayName(request.displayName());
         user.setType(User.UserType.current_student);
+        user.setLookingForMentor(false);
+        user.setLookingForMentee(false);
+        user.setMentorTo(null);
 
         userRepo.save(user);
 
