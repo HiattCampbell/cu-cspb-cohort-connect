@@ -1,5 +1,8 @@
 // web/src/api.js
-const API_BASE = "http://localhost:8080";
+// const API_BASE = "http://localhost:8080";
+const API_BASE = "http://18.218.119.39:8080/api";
+
+
 
 let token = localStorage.getItem("jwt") || null;
 
